@@ -162,7 +162,7 @@ def fig5():
 '''
 
 def fig5():
-    '''This function is to make a scatter plot and a bar chart with x axis of Dates and y axis of Doses Per Day 
+    '''This function is to make a bar chart with x axis of Dates and y axis of Doses Per Day 
     '''
     df = clean_dose()
     plt.figure(figsize=(16,10), dpi= 80)
@@ -171,7 +171,6 @@ def fig5():
         lst.append(i)
     x = np.array(df["Dates"])
     y = np.array(lst)
-    plt.scatter(x, y)
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=50))
     plt.bar(x,lst,width=0.8, color='navy')
     plt.xlabel("Dates")
