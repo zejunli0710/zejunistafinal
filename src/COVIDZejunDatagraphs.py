@@ -141,7 +141,7 @@ def fig4():
     plt.ylabel("New Cases")
     plt.suptitle('Figure 4', fontsize=16)
 
-
+'''
 def fig5():
     '''This function is to make a bar chart with x axis of Dates and y axis of New deaths
     '''
@@ -160,7 +160,7 @@ def fig5():
     plt.xlabel("Dates")
     plt.ylabel("New Deaths")
     plt.suptitle('Figure 5', fontsize=16)
-
+'''
 
 def fig6():
     '''This function is to make a scatter plot and a bar chart with x axis of Dates and y axis of Doses Per Day 
@@ -183,7 +183,7 @@ def fig6():
 def main2():
 
     fig4()
-    fig5()
+    #fig5()
     fig6()
     plt.show()
 main2()
