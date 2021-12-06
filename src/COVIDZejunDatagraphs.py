@@ -75,8 +75,15 @@ def fig3():
     lst = []
     for i in df["7-Day Moving Avg"]:
         lst.append(i)
+    int_lst = []
+    for i in lst_dates:
+        int_date = (i[6:]+i[0:2]+i[3:5])
+        int_lst.append(int(int_date))
     x = np.array(lst_dates)
     y = np.array(lst)
+    x1 = np.array(int_lst)
+    m, b = np.polyfit(x1, y, 1)
+    plt.plot(x, m*x1 + b)
     plt.scatter(x, y)
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=50))
     plt.xlabel("Dates")
@@ -108,7 +115,6 @@ def csv(file):
 
     df.drop(labels = [0], axis = 0)
     df.drop([0, 1, 2], axis = 0,inplace = True)
-
     del df["7-Day Moving Avg"]
     del df["State"]
     return df
@@ -117,15 +123,13 @@ def clean_dose():
     '''This function is to delete the dates that don't have dose
     '''
     df = csv("data_table_for_daily_case_trends__idaho1.csv")
-    lst_dates = []
     for i in range(626,670):
-        #print(i)
         df = df.drop(index=i)
     return df
 
 
 def fig4():
-    '''This function is to make a scatter plot with x axis of Dates and y axis of New cases
+    '''This function is to make a line graph with x axis of Dates and y axis of New cases
     '''
     df = csv("data_table_for_daily_case_trends__idaho1.csv")
     x = [dt.datetime.strptime(d,'%m %d %Y').date() for d in df["Dates"]]
@@ -164,7 +168,6 @@ def fig6():
     df = clean_dose()
     plt.figure(figsize=(16,10), dpi= 80)
     lst = []
-   #df_1 = df.iloc[3:634,:]
     for i in df["Doses Per Day"]:
         lst.append(i)
     x = np.array(df["Dates"])
