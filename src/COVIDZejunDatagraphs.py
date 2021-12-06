@@ -143,8 +143,7 @@ def fig4():
 
 '''
 def fig5():
-    '''This function is to make a bar chart with x axis of Dates and y axis of New deaths
-    '''
+    
     df = csv("data_table_for_daily_case_trends__idaho1.csv")
     plt.figure(figsize=(10,10))
     plt.style.use('ggplot')
@@ -162,7 +161,7 @@ def fig5():
     plt.suptitle('Figure 5', fontsize=16)
 '''
 
-def fig6():
+def fig5():
     '''This function is to make a scatter plot and a bar chart with x axis of Dates and y axis of Doses Per Day 
     '''
     df = clean_dose()
@@ -178,12 +177,12 @@ def fig6():
     plt.xlabel("Dates")
     plt.ylabel("Doses Per Day")
     plt.gca().invert_xaxis()
-    plt.suptitle('Figure 6', fontsize=16)
+    plt.suptitle('Figure 5', fontsize=16)
 
 def main2():
 
     fig4()
     #fig5()
-    fig6()
+    fig5()
     plt.show()
 main2()
