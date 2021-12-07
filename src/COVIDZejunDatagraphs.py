@@ -39,6 +39,7 @@ def fig1():
     x = [dt.datetime.strptime(d,'%m/%d/%Y').date() for d in lst_dates]
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m/%d/%Y'))
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=50))
+    
     plt.plot(x,df['Current Hospitalized COVID-19 Patients'])
     plt.gcf().autofmt_xdate()
     plt.xlabel("Dates")
@@ -76,9 +77,9 @@ def fig3():
     for i in df["7-Day Moving Avg"]:
         lst.append(i)
     int_lst = []
-    for i in lst_dates:
-        int_date = (i[6:]+i[0:2]+i[3:5])
-        int_lst.append(int(int_date))
+    for i in range(len(lst_dates)):
+        int_lst.append(i)
+
     x = np.array(lst_dates)
     y = np.array(lst)
     x1 = np.array(int_lst)
